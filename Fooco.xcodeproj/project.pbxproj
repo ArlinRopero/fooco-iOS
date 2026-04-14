@@ -6,6 +6,14 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		1D440CAD2F8D50AB00BE4E70 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 1D440CAC2F8D50AB00BE4E70 /* FirebaseAnalytics */; };
+		1D440CAF2F8D50AB00BE4E70 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 1D440CAE2F8D50AB00BE4E70 /* FirebaseAuth */; };
+		1D440CB12F8D50AB00BE4E70 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 1D440CB02F8D50AB00BE4E70 /* FirebaseCrashlytics */; };
+		1D440CB32F8D50AB00BE4E70 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 1D440CB22F8D50AB00BE4E70 /* FirebaseFirestore */; };
+		1D57FF122F873C6F00EA3ED9 /* Translation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D57FF112F873C6F00EA3ED9 /* Translation.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		1D704AA12F85A77900E8B6E6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,14 +32,46 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D57FF112F873C6F00EA3ED9 /* Translation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Translation.framework; path = System/Library/Frameworks/Translation.framework; sourceTree = SDKROOT; };
 		1D704A932F85A77700E8B6E6 /* Fooco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fooco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D704AA02F85A77900E8B6E6 /* FoocoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoocoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D704AAA2F85A77900E8B6E6 /* FoocoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoocoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		1D440CD22F8D609F00BE4E70 /* Exceptions for "Fooco" folder in "FoocoTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Config/GoogleService-Info-Dev.plist",
+				"Config/GoogleService-Info-Prod.plist",
+			);
+			target = 1D704A9F2F85A77900E8B6E6 /* FoocoTests */;
+		};
+		1D440CD32F8D609F00BE4E70 /* Exceptions for "Fooco" folder in "FoocoUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Config/GoogleService-Info-Dev.plist",
+				"Config/GoogleService-Info-Prod.plist",
+			);
+			target = 1D704AA92F85A77900E8B6E6 /* FoocoUITests */;
+		};
+		1D57FF062F87389200EA3ED9 /* Exceptions for "Fooco" folder in "Fooco" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 1D704A922F85A77700E8B6E6 /* Fooco */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		1D704A952F85A77700E8B6E6 /* Fooco */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				1D57FF062F87389200EA3ED9 /* Exceptions for "Fooco" folder in "Fooco" target */,
+				1D440CD22F8D609F00BE4E70 /* Exceptions for "Fooco" folder in "FoocoTests" target */,
+				1D440CD32F8D609F00BE4E70 /* Exceptions for "Fooco" folder in "FoocoUITests" target */,
+			);
 			path = Fooco;
 			sourceTree = "<group>";
 		};
@@ -52,6 +92,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D440CAD2F8D50AB00BE4E70 /* FirebaseAnalytics in Frameworks */,
+				1D440CB12F8D50AB00BE4E70 /* FirebaseCrashlytics in Frameworks */,
+				1D440CAF2F8D50AB00BE4E70 /* FirebaseAuth in Frameworks */,
+				1D440CB32F8D50AB00BE4E70 /* FirebaseFirestore in Frameworks */,
+				1D57FF122F873C6F00EA3ED9 /* Translation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +117,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D57FF102F873C6E00EA3ED9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1D57FF112F873C6F00EA3ED9 /* Translation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1D704A8A2F85A77700E8B6E6 = {
 			isa = PBXGroup;
 			children = (
 				1D704A952F85A77700E8B6E6 /* Fooco */,
 				1D704AA32F85A77900E8B6E6 /* FoocoTests */,
 				1D704AAD2F85A77900E8B6E6 /* FoocoUITests */,
+				1D57FF102F873C6E00EA3ED9 /* Frameworks */,
 				1D704A942F85A77700E8B6E6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -100,8 +154,11 @@
 			buildConfigurationList = 1D704AB42F85A77900E8B6E6 /* Build configuration list for PBXNativeTarget "Fooco" */;
 			buildPhases = (
 				1D704A8F2F85A77700E8B6E6 /* Sources */,
+				1D440CE02F8D713500BE4E70 /* Select Firebase Environment */,
 				1D704A902F85A77700E8B6E6 /* Frameworks */,
 				1D704A912F85A77700E8B6E6 /* Resources */,
+				1D440CE52F8DA83700BE4E70 /* Firebase Crashlytics */,
+				1D440CE62F8DA8C000BE4E70 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -112,6 +169,10 @@
 			);
 			name = Fooco;
 			packageProductDependencies = (
+				1D440CAC2F8D50AB00BE4E70 /* FirebaseAnalytics */,
+				1D440CAE2F8D50AB00BE4E70 /* FirebaseAuth */,
+				1D440CB02F8D50AB00BE4E70 /* FirebaseCrashlytics */,
+				1D440CB22F8D50AB00BE4E70 /* FirebaseFirestore */,
 			);
 			productName = Fooco;
 			productReference = 1D704A932F85A77700E8B6E6 /* Fooco.app */;
@@ -187,14 +248,25 @@
 				};
 			};
 			buildConfigurationList = 1D704A8E2F85A77700E8B6E6 /* Build configuration list for PBXProject "Fooco" */;
-			developmentRegion = en;
+			developmentRegion = "es-419";
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
+				"es-419",
+				es,
+				"en-GB",
+				"en-AU",
+				"en-IN",
+				"es-US",
+				"pt-PT",
 			);
 			mainGroup = 1D704A8A2F85A77700E8B6E6;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				1D440CAB2F8D50AB00BE4E70 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 1D704A942F85A77700E8B6E6 /* Products */;
 			projectDirPath = "";
@@ -230,6 +302,64 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1D440CE02F8D713500BE4E70 /* Select Firebase Environment */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Select Firebase Environment";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Scripts/select_firebase_env.sh\"\n";
+		};
+		1D440CE52F8DA83700BE4E70 /* Firebase Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}\n$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)\n",
+			);
+			name = "Firebase Crashlytics";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
+		1D440CE62F8DA8C000BE4E70 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1D704A8F2F85A77700E8B6E6 /* Sources */ = {
@@ -271,6 +401,8 @@
 /* Begin XCBuildConfiguration section */
 		1D704AB22F85A77900E8B6E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 1D704A952F85A77700E8B6E6 /* Fooco */;
+			baseConfigurationReferenceRelativePath = Config/Debug.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -334,6 +466,8 @@
 		};
 		1D704AB32F85A77900E8B6E6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 1D704A952F85A77700E8B6E6 /* Fooco */;
+			baseConfigurationReferenceRelativePath = Config/Release.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -390,13 +524,18 @@
 		};
 		1D704AB52F85A77900E8B6E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 1D704A952F85A77700E8B6E6 /* Fooco */;
+			baseConfigurationReferenceRelativePath = Config/Debug.xcconfig;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T3RXLQVUAB;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Fooco/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -407,7 +546,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.arlinropero.Fooco;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arlinropero.FoocoAppDEV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -421,13 +560,18 @@
 		};
 		1D704AB62F85A77900E8B6E6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 1D704A952F85A77700E8B6E6 /* Fooco */;
+			baseConfigurationReferenceRelativePath = Config/Release.xcconfig;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T3RXLQVUAB;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Fooco/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -438,7 +582,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.arlinropero.Fooco;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arlinropero.FoocoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -452,10 +596,13 @@
 		};
 		1D704AB82F85A77900E8B6E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 1D704A952F85A77700E8B6E6 /* Fooco */;
+			baseConfigurationReferenceRelativePath = Config/Debug.xcconfig;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T3RXLQVUAB;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
 				MARKETING_VERSION = 1.0;
@@ -473,10 +620,13 @@
 		};
 		1D704AB92F85A77900E8B6E6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 1D704A952F85A77700E8B6E6 /* Fooco */;
+			baseConfigurationReferenceRelativePath = Config/Release.xcconfig;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T3RXLQVUAB;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
 				MARKETING_VERSION = 1.0;
@@ -494,9 +644,12 @@
 		};
 		1D704ABB2F85A77900E8B6E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 1D704A952F85A77700E8B6E6 /* Fooco */;
+			baseConfigurationReferenceRelativePath = Config/Debug.xcconfig;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T3RXLQVUAB;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.arlinropero.FoocoUITests;
@@ -513,9 +666,12 @@
 		};
 		1D704ABC2F85A77900E8B6E6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 1D704A952F85A77700E8B6E6 /* Fooco */;
+			baseConfigurationReferenceRelativePath = Config/Release.xcconfig;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T3RXLQVUAB;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.arlinropero.FoocoUITests;
@@ -570,6 +726,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1D440CAB2F8D50AB00BE4E70 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.12.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1D440CAC2F8D50AB00BE4E70 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D440CAB2F8D50AB00BE4E70 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		1D440CAE2F8D50AB00BE4E70 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D440CAB2F8D50AB00BE4E70 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		1D440CB02F8D50AB00BE4E70 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D440CAB2F8D50AB00BE4E70 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		1D440CB22F8D50AB00BE4E70 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D440CAB2F8D50AB00BE4E70 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1D704A8B2F85A77700E8B6E6 /* Project object */;
 }

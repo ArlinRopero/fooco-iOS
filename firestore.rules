@@ -1,0 +1,87 @@
+rules_version = '2';
+
+// MARK: - Firestore Security Rules — Fooco
+//
+// Principio: cada usuario solo puede leer/escribir sus propios documentos.
+// Ningún usuario puede leer datos de otro usuario.
+//
+// Estructura de colecciones:
+//   users/{uid}/profile/data      → perfil del usuario
+//   users/{uid}/foodLogs/{logId}  → log diario de alimentos
+//   users/{uid}/recipes/{recipeId}→ recetas del usuario
+//
+// Recetas públicas:
+//   Cualquier usuario autenticado puede LEER recetas donde isPublic == true.
+//   Solo el autor puede ESCRIBIR su receta.
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ─────────────────────────────────────────────
+    // Helper functions
+    // ─────────────────────────────────────────────
+
+    /// El request viene de un usuario autenticado.
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    /// El usuario autenticado es el dueño del documento.
+    function isOwner(uid) {
+      return isAuthenticated() && request.auth.uid == uid;
+    }
+
+    /// Verifica que el campo userId del documento coincide con el auth.uid.
+    /// Útil para colecciones donde se guarda el userId como campo.
+    function ownsResource() {
+      return isAuthenticated() && request.auth.uid == resource.data.userId;
+    }
+
+    // ─────────────────────────────────────────────
+    // users/{uid}  — documento raíz del usuario
+    // ─────────────────────────────────────────────
+
+    match /users/{uid} {
+      allow read, write: if isOwner(uid);
+
+      // ── Perfil ──────────────────────────────────
+      match /profile/{document=**} {
+        allow read, write: if isOwner(uid);
+      }
+
+      // ── Food Logs ───────────────────────────────
+      match /foodLogs/{logId} {
+        allow read, write: if isOwner(uid);
+
+        // Validación de escritura: grams debe ser positivo
+        allow create: if isOwner(uid)
+          && request.resource.data.grams > 0
+          && request.resource.data.loggedAt is timestamp
+          && request.resource.data.deleteAt is timestamp;
+      }
+
+      // ── Recetas ─────────────────────────────────
+      match /recipes/{recipeId} {
+        // El autor siempre puede leer/escribir sus recetas
+        allow read, write: if isOwner(uid);
+
+        // Cualquier usuario autenticado puede leer recetas públicas
+        allow read: if isAuthenticated()
+          && resource.data.isPublic == true;
+
+        // Validación de creación
+        allow create: if isOwner(uid)
+          && request.resource.data.name is string
+          && request.resource.data.name.size() > 0
+          && request.resource.data.name.size() <= 100;
+      }
+    }
+
+    // ─────────────────────────────────────────────
+    // Denegar todo lo demás por defecto
+    // ─────────────────────────────────────────────
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

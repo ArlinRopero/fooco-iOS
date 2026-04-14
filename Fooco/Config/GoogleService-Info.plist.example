@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  GoogleService-Info.plist.example
+  ─────────────────────────────────
+  Este archivo documenta la estructura del plist de Firebase.
+  NO contiene credenciales reales.
+
+  Para configurar el proyecto:
+    1. Ve a Firebase Console → Configuración del proyecto → Tu app iOS
+    2. Descarga el GoogleService-Info.plist
+    3. Renómbralo:
+         Fooco-Dev  → GoogleService-Info-Dev.plist
+         Fooco-Prod → GoogleService-Info-Prod.plist
+    4. Colócalo en Fooco/Config/
+    5. NUNCA lo commitees a git (ya está en .gitignore)
+-->
+<plist version="1.0">
+<dict>
+  <key>CLIENT_ID</key>
+  <string>TU_CLIENT_ID.apps.googleusercontent.com</string>
+
+  <key>REVERSED_CLIENT_ID</key>
+  <string>com.googleusercontent.apps.TU_CLIENT_ID</string>
+
+  <key>BUNDLE_ID</key>
+  <string>com.tuempresa.fooco</string>
+
+  <key>PROJECT_ID</key>
+  <string>fooco-dev-XXXXX</string>
+
+  <key>STORAGE_BUCKET</key>
+  <string>fooco-dev-XXXXX.appspot.com</string>
+
+  <key>GCM_SENDER_ID</key>
+  <string>000000000000</string>
+
+  <key>API_KEY</key>
+  <string>TU_API_KEY_AQUI</string>
+
+  <key>GOOGLE_APP_ID</key>
+  <string>1:000000000000:ios:XXXXXXXXXXXXXXXX</string>
+
+  <key>IS_ADS_ENABLED</key>
+  <false/>
+
+  <key>IS_ANALYTICS_ENABLED</key>
+  <true/>
+
+  <key>IS_CRASHLYTICS_ENABLED</key>
+  <true/>
+
+  <key>IS_SIGNIN_ENABLED</key>
+  <true/>
+</dict>
+</plist>

@@ -1,0 +1,17 @@
+// Release.xcconfig
+// Configuración para el ambiente de PRODUCCIÓN
+//
+// Cómo asignar en Xcode:
+//   Project → Info → Configurations → Release → Fooco → selecciona este archivo
+//
+// Hereda los secrets (API key de USDA):
+#include "Secrets.xcconfig"
+
+// Nombre limpio sin sufijo en producción
+APP_DISPLAY_NAME = Fooco
+
+// Bundle ID de producción
+PRODUCT_BUNDLE_IDENTIFIER = com.arlinropero.FoocoApp
+
+// Firebase usará GoogleService-Info.plist (via build script)
+FIREBASE_ENVIRONMENT = prod

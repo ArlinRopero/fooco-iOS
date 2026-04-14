@@ -1,0 +1,97 @@
+{
+  "indexes": [
+
+    // ──────────────────────────────────────────────────────────────
+    // foodLogs — historial semanal / mensual
+    // Query: WHERE userId (path implícito) ORDER BY loggedAt DESC
+    // Soporta: getTodayEntries(), getEntries(from:to:), historial semanal
+    // ──────────────────────────────────────────────────────────────
+    {
+      "collectionGroup": "foodLogs",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "loggedAt", "order": "DESCENDING" }
+      ]
+    },
+
+    // ──────────────────────────────────────────────────────────────
+    // foodLogs — rango de fechas + TTL
+    // Query: WHERE loggedAt >= start AND loggedAt < end
+    //        ORDER BY loggedAt DESC
+    // Freemium: asegura que el campo deleteAt está indexado para el TTL
+    // ──────────────────────────────────────────────────────────────
+    {
+      "collectionGroup": "foodLogs",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "loggedAt",  "order": "ASCENDING" },
+        { "fieldPath": "deleteAt",  "order": "ASCENDING" }
+      ]
+    },
+
+    // ──────────────────────────────────────────────────────────────
+    // foodLogs — calorías por período (Analytics / Stats Premium)
+    // Query: WHERE loggedAt >= start ORDER BY loggedAt, calculatedCalories
+    // ──────────────────────────────────────────────────────────────
+    {
+      "collectionGroup": "foodLogs",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "loggedAt",          "order": "DESCENDING" },
+        { "fieldPath": "calculatedCalories", "order": "DESCENDING" }
+      ]
+    },
+
+    // ──────────────────────────────────────────────────────────────
+    // recipes — recetas públicas del explorador (Premium)
+    // Query: WHERE isPublic == true ORDER BY updatedAt DESC LIMIT n
+    // Requiere collection group index porque el explorador hace
+    // cross-user queries.
+    // ──────────────────────────────────────────────────────────────
+    {
+      "collectionGroup": "recipes",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "isPublic",  "order": "ASCENDING" },
+        { "fieldPath": "updatedAt", "order": "DESCENDING" }
+      ]
+    },
+
+    // ──────────────────────────────────────────────────────────────
+    // recipes — recetas propias ordenadas por fecha
+    // Query: ORDER BY updatedAt DESC (dentro de users/{uid}/recipes)
+    // ──────────────────────────────────────────────────────────────
+    {
+      "collectionGroup": "recipes",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "updatedAt", "order": "DESCENDING" }
+      ]
+    }
+
+  ],
+
+  "fieldOverrides": [
+
+    // ──────────────────────────────────────────────────────────────
+    // TTL sobre foodLogs.deleteAt
+    // Activa la eliminación automática de documentos expirados.
+    //
+    // IMPORTANTE: Este fieldOverride solo documenta la intención.
+    // El TTL debe activarse MANUALMENTE en Firebase Console:
+    //   Firestore → Configuración → TTL → Colección: foodLogs → Campo: deleteAt
+    //
+    // Una vez activado, Firestore elimina documentos donde deleteAt < now()
+    // sin costo de lectura/escritura — solo de eliminación (1 write por doc).
+    // ──────────────────────────────────────────────────────────────
+    {
+      "collectionGroup": "foodLogs",
+      "fieldPath": "deleteAt",
+      "indexes": [
+        { "order": "ASCENDING",  "queryScope": "COLLECTION" },
+        { "order": "DESCENDING", "queryScope": "COLLECTION" }
+      ]
+    }
+
+  ]
+}

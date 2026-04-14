@@ -1,0 +1,21 @@
+# Secrets — nunca al repositorio
+Fooco/Config/Secrets.xcconfig
+
+# Firebase — credenciales por ambiente (descargar desde Firebase Console)
+Fooco/Config/GoogleService-Info-Dev.plist
+Fooco/Config/GoogleService-Info-Prod.plist
+GoogleService-Info.plist
+
+# Xcode
+*.xcuserstate
+xcuserdata/
+*.xccheckout
+*.moved-aside
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# macOS
+.DS_Store

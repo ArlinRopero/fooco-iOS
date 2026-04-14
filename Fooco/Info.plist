@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- API Keys -->
+	<key>USDA_API_KEY</key>
+	<string>$(USDA_API_KEY)</string>
+
+	<!-- Nombre que aparece en el home screen
+	     Debug   → "Fooco Dev"  (desde Debug.xcconfig)
+	     Release → "Fooco"      (desde Release.xcconfig) -->
+	<key>CFBundleDisplayName</key>
+	<string>$(APP_DISPLAY_NAME)</string>
+
+	<!-- El build script lee esta variable para copiar el plist correcto -->
+	<key>FIREBASE_ENVIRONMENT</key>
+	<string>$(FIREBASE_ENVIRONMENT)</string>
+</dict>
+</plist>

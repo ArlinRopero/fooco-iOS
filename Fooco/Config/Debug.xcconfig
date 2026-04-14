@@ -1,0 +1,17 @@
+// Debug.xcconfig
+// Configuración para el ambiente de DESARROLLO
+//
+// Cómo asignar en Xcode:
+//   Project → Info → Configurations → Debug → Fooco → selecciona este archivo
+//
+// Hereda los secrets (API key de USDA):
+#include "Secrets.xcconfig"
+
+// Nombre que aparece en el home screen del dispositivo
+APP_DISPLAY_NAME = Fooco Dev
+
+// Bundle ID del ambiente de desarrollo
+PRODUCT_BUNDLE_IDENTIFIER = com.arlinropero.FoocoAppDEV
+
+// Firebase usará GoogleService-Info-dev.plist (via build script)
+FIREBASE_ENVIRONMENT = dev
